@@ -7,24 +7,6 @@ import { Col, Row } from 'antd';
 const Index = () => {
   return (
     <div>
-      {/* <Footer style={{backgroundColor:"black",marginTop:"67vh"}} >
-        <img src="https://profitsols.com/wp-content/uploads/2023/07/LOGO.png" alt="Logo" style={{ height: '30px', marginRight: '40px' }} />
-        
-        <Menu theme="light" mode="vertical" defaultSelectedKeys={['home']} style={{ display: 'flex',backgroundColor:"black",color:"white"}}>
-          <Menu.Item key="home" >
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          
-          <Menu.Item key="about" >
-            <Link to="/about">About</Link>
-          </Menu.Item>
-          
-          <Menu.Item key="contact">
-            <Link to="/contect">Contact</Link>
-          </Menu.Item>
-        </Menu>
-      </Footer> */}
-     
        <Footer style={{ textAlign: 'center', backgroundColor:"black",color:"white",marginTop:"62vh" }}>
      <Row>
         <Col flex={12}><div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
