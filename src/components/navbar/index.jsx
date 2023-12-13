@@ -44,7 +44,12 @@ const index = () => {
 
          
         
-  
+          <Menu.Item key="login" style={{fontSize:"24px"}}>
+          <Button  onClick={showDrawer}>
+          <MenuOutlined />Manu
+            </Button>   
+          </Menu.Item>
+
       
    
     </Menu>
@@ -78,9 +83,7 @@ const index = () => {
       </Drawer>
 
    
-          <Button type="primary" onClick={showDrawer}>
-          <MenuOutlined />Manu
-            </Button>       
+            
 
     
   </>
