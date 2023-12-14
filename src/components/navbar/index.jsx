@@ -42,13 +42,15 @@ const HerrowSection =()=>{
 
 const Index = () => {
   const [openManu, setopenManu] = useState(false);
+  
+  
   return (
     <>
     <div  className={style.wrapperClass}>
        <HerrowSection/>
       <div >
           <div className={style.manuIcon} >
-          <div  style={{ backgroundColor: "black", color: "white", height: "60", paddingLeft: "12", paddingTop: "12",display:"flex",justifyContent:"end" }}>
+          <div  style={{ display:"flex",justifyContent:"end" }}>
             <MenuOutlined style={{ color: "white", fontSize: "24px",position:"relative",marginBottom:"-45px" }} onClick={() => { setopenManu(true) }} />
           </div>
           </div>
@@ -57,7 +59,7 @@ const Index = () => {
           <ManuBar  />
     
 
-        <Drawer placement='left'    mode="vartical" open={openManu} onClose={() => { setopenManu(false) }} closable={false} style={{ backgroundColor: "black", color: "white"}}>
+        <Drawer placement='left'    mode="vartical" open={openManu} onClose={() => { setopenManu(false) }} closable={false}>
           <ManuBar isInline/>
         </Drawer>
 
