@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Menu ,Drawer} from 'antd';
 import style from './style.module.scss';
 import { MenuOutlined ,LinkedinOutlined} from '@ant-design/icons'; 
+import { Link } from 'react-router-dom';
 const ManuBar =( {isInline = false })=>{
   return(  
   <Menu className={style.imgwrapperClass} mode={isInline ? "inline" : "horizontal"} >
@@ -10,15 +11,17 @@ const ManuBar =( {isInline = false })=>{
           </Menu.Item>
 
           <Menu.Item key="home" style={{ marginLeft: 'auto' }}className={style.headerMenu}>
-            Home
+          <Link to="/"> Home </Link>  
+
           </Menu.Item>
 
           <Menu.Item key="contact" className={style.headerMenu}>
-            Contact Us
+          <Link to="/contect"> Contact </Link>  
           </Menu.Item>
 
           <Menu.Item key="about"className={style.headerMenu} >
-            About
+          <Link to="/about"> About </Link>  
+
           </Menu.Item>
 
           <Menu.Item key="login" className={style.headerMenu}>
