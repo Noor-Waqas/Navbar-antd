@@ -1,5 +1,25 @@
-.manuItem{
-    @media only screen and (max-width: 756px) {
-          display: none;
-      }
+.wrapperClass{
+   
+.headerMenu{
+    @media only screen and (max-width: 650px) {
+      display: none;
+      }   
+}
+
+.manuIcon{
+    @media only screen and (min-width: 650px) {
+      display: none;
+      }   
+}
+.imgwrapperClass{
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    .imgclass{
+    font-size:24px;
+    margin-top:6px;
+    }
+  } 
+
+
 }
