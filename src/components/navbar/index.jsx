@@ -1,93 +1,68 @@
 import React, { useState } from 'react';
-import { Button, Menu,Drawer} from 'antd';
-import { HomeOutlined, AppstoreOutlined, UsergroupAddOutlined, ContactsOutlined ,UserOutlined,MenuOutlined} from '@ant-design/icons';
-import { Link } from 'react-router-dom';
-import style from './style.module.scss'
-
-
-
-const index = () => {
-  const [open, setOpen] = useState(false);
-  const showDrawer = () => {
-    setOpen(true);
-  };
-  const onClose = () => {
-    setOpen(false);
-  };
-
-  return (<>
-      <Menu mode="horizontal" style={{fontSize:"24px"}}>
-          <Menu.Item key="logo" className={style.manuItem}>
-            <img src="https://profitsols.com/wp-content/uploads/2023/07/LOGO.png" alt="Logo" style={{ height: '30px', marginRight: '10px' }} />
-          </Menu.Item>
-        
-          <Menu.Item key="mail" className={style.manuItem} icon={<HomeOutlined style={{fontSize:"24px"}} />} style={{ marginLeft: 'auto' }}>
-            <Link to="/"> Home </Link>  
+import { Button, Menu ,Drawer} from 'antd';
+import style from './style.module.scss';
+import { MenuOutlined ,LinkedinOutlined} from '@ant-design/icons'; 
+const ManuBar =( {isInline = false })=>{
+  return(  
+  <Menu className={style.imgwrapperClass} mode={isInline ? "inline" : "horizontal"} >
+          <Menu.Item key="logo" className={style.imgclass}>
+            <img src="https://profitsols.com/wp-content/uploads/2023/07/LOGO.png" alt="Logo" style={{ marginRight: '10px' }} />
           </Menu.Item>
 
-          <Menu.Item key="app" className={style.manuItem} icon={<AppstoreOutlined style={{fontSize:"24px"}}/>}>
-            <Link to="/about"> About </Link>  
-          </Menu.Item>
-         
-          <Menu.SubMenu key="SubMenu" className={style.manuItem} icon={<UsergroupAddOutlined style={{fontSize:"24px"}}/>} title="Sercious">
-            <Menu.Item key="setting:1"><Link to="/servious"> Option 1  </Link></Menu.Item>
-            <Menu.Item key="setting:2"><Link to="/serviousTwo"> Option 2  </Link></Menu.Item>
-          </Menu.SubMenu>
-
-          <Menu.Item key="app" className={style.manuItem} icon={<ContactsOutlined style={{fontSize:"24px"}}/>}>
-            <Link to="/contect"> Contact </Link>  
+          <Menu.Item key="home" style={{ marginLeft: 'auto' }}className={style.headerMenu}>
+            Home
           </Menu.Item>
 
-          <Menu.Item key="login" className={style.manuItem} style={{fontSize:"24px"}}>
-            <Button icon={<UserOutlined />}>Login</Button>
+          <Menu.Item key="contact" className={style.headerMenu}>
+            Contact Us
           </Menu.Item>
 
-         
-        
-          <Menu.Item key="login" style={{fontSize:"24px"}}>
-          <Button  onClick={showDrawer}>
-          <MenuOutlined />Manu
-            </Button>   
+          <Menu.Item key="about"className={style.headerMenu} >
+            About
           </Menu.Item>
 
-      
-   
-    </Menu>
-
-    {/* drawer manu */}
-    <Drawer  placement="left" onClose={onClose} open={open}>
-    <Menu mode="vertical" style={{fontSize:"24px"}}>
-        
-
-          <Menu.Item key="mail" icon={<HomeOutlined style={{fontSize:"24px"}} />} style={{ marginLeft: 'auto' }}>
-            <Link to="/"> Home </Link>  
+          <Menu.Item key="login" className={style.headerMenu}>
+            <Button> Login</Button>
           </Menu.Item>
-
-          <Menu.Item key="app" icon={<AppstoreOutlined style={{fontSize:"24px"}}/>}>
-            <Link to="/about"> About </Link>  
+  </Menu>
+  )
+}
+const HerrowSection =()=>{
+  return(  
+  <Menu style={{ backgroundColor: "black", color: "white", fontSize: "24px" }} mode="horizontal" >
+          <Menu.Item key="logo" style={{fontSize:"24px",marginTop:"6px"}}>
+          <p>+923206437540</p>
           </Menu.Item>
-         
-          <Menu.SubMenu key="SubMenu" icon={<UsergroupAddOutlined style={{fontSize:"24px"}}/>} title="Sercious">
-            <Menu.Item key="setting:1"><Link to="/servious"> Option 1  </Link></Menu.Item>
-            <Menu.Item key="setting:2"><Link to="/serviousTwo"> Option 2  </Link></Menu.Item>
-          </Menu.SubMenu>
-
-          <Menu.Item key="app" icon={<ContactsOutlined style={{fontSize:"24px"}}/>}>
-            <Link to="/contect"> Contact </Link>  
-          </Menu.Item>
-
-          <Menu.Item key="login" style={{fontSize:"24px"}}>
-            <Button icon={<UserOutlined />}>Login</Button>
-          </Menu.Item>
-    </Menu>
-      </Drawer>
-
-   
-            
-
-    
-  </>
+  </Menu>
   )
 }
 
-export default index
+const Index = () => {
+  const [openManu, setopenManu] = useState(false);
+  return (
+    <>
+    <div  className={style.wrapperClass}>
+       <HerrowSection/>
+      <div >
+          <div className={style.manuIcon} >
+          <div  style={{ backgroundColor: "black", color: "white", height: "60", paddingLeft: "12", paddingTop: "12",display:"flex",justifyContent:"end" }}>
+            <MenuOutlined style={{ color: "white", fontSize: "24px",position:"relative",marginBottom:"-45px" }} onClick={() => { setopenManu(true) }} />
+          </div>
+          </div>
+
+      
+          <ManuBar  />
+    
+
+        <Drawer placement='left'    mode="vartical" open={openManu} onClose={() => { setopenManu(false) }} closable={false} style={{ backgroundColor: "black", color: "white"}}>
+          <ManuBar isInline/>
+        </Drawer>
+
+      
+      </div>
+      </div>
+    </>
+  );
+};
+
+export default Index;
