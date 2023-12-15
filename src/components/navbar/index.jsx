@@ -65,10 +65,11 @@ const Index = () => {
       <Drawer
         title={`+923206437540`}
         placement="left"
-        width={200}
+        width={250}
         onClose={onClose}
         open={open}
         className={style.drawerClass}
+        footer="mr.mianwaqasahmad@gmail.com"
         // extra={
         //   <Space>
         //     <Button onClick={onClose}style={{backgroundColor:"black",color:"white"}}>Cancel</Button>
