@@ -5,7 +5,7 @@ import { Col, Row } from 'antd';
 const Index = () => {
   return (
     <div>
-       <Footer style={{ textAlign: 'center', backgroundColor:"black",color:"white",marginTop:"62vh" }}>
+       <Footer style={{ textAlign: 'center', backgroundColor:"black",color:"white",marginTop:"15px" }}>
      <Row>
         <Col flex={12}><div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ marginRight: '20px' }}>
