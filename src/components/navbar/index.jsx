@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Menu ,Drawer} from 'antd';
+import { Button, Drawer,Menu,Space} from 'antd';
 import style from './style.module.scss';
 import { MenuOutlined ,LinkedinOutlined} from '@ant-design/icons'; 
 import { Link } from 'react-router-dom';
@@ -41,8 +41,11 @@ const HerrowSection =()=>{
 }
 
 const Index = () => {
-  const [openManu, setopenManu] = useState(false);
-  
+  // const [openManu, setopenManu] = useState(false);
+  const [open, setOpen] = useState(false);  
+  const onClose = () => {
+    setOpen(false);
+  };  
   
   return (
     <>
@@ -50,19 +53,30 @@ const Index = () => {
        <HerrowSection/>
       <div >
           <div className={style.manuIcon} >
-          <div  style={{ display:"flex",justifyContent:"end" }}>
-            <MenuOutlined style={{ color: "white", fontSize: "24px",position:"relative",marginBottom:"-45px" }} onClick={() => { setopenManu(true) }} />
-          </div>
+              <div  style={{ display:"flex",justifyContent:"end" }}>
+                <MenuOutlined style={{ color: "white", fontSize: "24px",position:"relative",marginBottom:"-45px" }} onClick={() => { setOpen(true) }} />
+              </div>
           </div>
 
       
           <ManuBar  />
-    
-
-        <Drawer placement='left'    mode="vartical" open={openManu} onClose={() => { setopenManu(false) }} closable={false}>
-          <ManuBar isInline/>
-        </Drawer>
-
+  
+      <Drawer
+        title={`+923206437540`}
+        placement="left"
+        onClose={onClose}
+        open={open}
+        extra={
+          <Space>
+            <Button onClick={onClose}style={{backgroundColor:"black",color:"white"}}>Cancel</Button>
+            {/* <Button type="primary" onClick={onClose}>
+              OK
+            </Button> */}
+          </Space>
+        }
+      >
+       <ManuBar isInline/>
+      </Drawer>
       
       </div>
       </div>
