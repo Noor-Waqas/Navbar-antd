@@ -54,7 +54,7 @@ const Index = () => {
       <div >
           <div className={style.manuIcon} >
               <div  style={{ display:"flex",justifyContent:"end" }}>
-                <MenuOutlined style={{ color: "white", fontSize: "24px",position:"relative",marginBottom:"-45px" }} onClick={() => { setOpen(true) }} />
+                <MenuOutlined style={{ color: "white", fontSize: "24px",position:"relative",marginBottom:"-45px",marginRight:"15px" }} onClick={() => { setOpen(true) }} />
               </div>
           </div>
 
