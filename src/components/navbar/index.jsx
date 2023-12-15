@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Drawer,Menu,Space} from 'antd';
 import style from './style.module.scss';
-import { MenuOutlined ,LinkedinOutlined} from '@ant-design/icons'; 
+import { MenuOutlined } from '@ant-design/icons'; 
 import { Link } from 'react-router-dom';
+
 const ManuBar =( {isInline = false })=>{
   return(  
   <Menu className={style.imgwrapperClass} mode={isInline ? "inline" : "horizontal"} >
@@ -41,7 +42,6 @@ const HerrowSection =()=>{
 }
 
 const Index = () => {
-  // const [openManu, setopenManu] = useState(false);
   const [open, setOpen] = useState(false);  
   const onClose = () => {
     setOpen(false);
@@ -60,23 +60,27 @@ const Index = () => {
 
       
           <ManuBar  />
-  
+  <div className={style.drawerClass}>
+
       <Drawer
         title={`+923206437540`}
         placement="left"
+        width={200}
         onClose={onClose}
         open={open}
-        extra={
-          <Space>
-            <Button onClick={onClose}style={{backgroundColor:"black",color:"white"}}>Cancel</Button>
-            {/* <Button type="primary" onClick={onClose}>
-              OK
-            </Button> */}
-          </Space>
-        }
+        className={style.drawerClass}
+        // extra={
+        //   <Space>
+        //     <Button onClick={onClose}style={{backgroundColor:"black",color:"white"}}>Cancel</Button>
+        //     {/* <Button type="primary" onClick={onClose}>
+        //       OK
+        //     </Button> */}
+        //   </Space>
+        // }
       >
        <ManuBar isInline/>
       </Drawer>
+      </div>
       
       </div>
       </div>
