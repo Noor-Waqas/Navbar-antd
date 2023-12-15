@@ -1,7 +1,5 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
-import { HomeOutlined, AppstoreOutlined, UsergroupAddOutlined, ContactsOutlined ,UserOutlined} from '@ant-design/icons';
+import { Layout } from 'antd';
 const { Footer } = Layout;
 import { Col, Row } from 'antd';
 const Index = () => {
@@ -18,29 +16,7 @@ const Index = () => {
             </div>
           </div>
         </Col>
-
-        <Col flex={12}><Menu  mode="horizontal" defaultSelectedKeys={['home']} style={{ marginTop: '20px',fontSize:"24px", }}>
-            <Menu.Item key="home" icon={<HomeOutlined style={{fontSize:"24px"}} />} >
-            <Link to="/">Home</Link>
-            </Menu.Item>
-
-            <Menu.Item key="about" icon={<AppstoreOutlined style={{fontSize:"24px"}}/>} >
-            <Link to="/about">About</Link>
-            </Menu.Item>
-
-            <Menu.Item key="contact" icon={<ContactsOutlined style={{fontSize:"24px"}}/>}>
-            <Link to="/contect">contect</Link>
-            </Menu.Item>
-            <Menu.Item key="Sercious"  icon={<UsergroupAddOutlined style={{fontSize:"24px"}}/>} >
-            <Link to="/servious" >Sercious</Link>
-            </Menu.Item>
-        </Menu>
-        </Col>
     </Row>
-      
-
-      
-
       <p style={{ marginTop: '20px' }}>© 2023 Shadow Aoo Company. All rights reserved.</p>
     </Footer>
     </div>
