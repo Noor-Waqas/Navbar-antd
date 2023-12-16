@@ -1,11 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import style from './style.module.scss';
-import { Button } from 'antd';
-
+import { Button,Col, Row } from 'antd';
 
 const index = () => {
   const [product,setproduct]=useState([])
+  const [productdetails,setproductdetails]=useState([])
+
       const getApi = async (url)=>{
         const resp= await axios.get(url)
         const data= resp.data
@@ -22,11 +23,30 @@ const index = () => {
           useEffect(()=>{
           ProductList()
           },[])
-          console.log("data",product)
+
+          const getApiProduct = async (url)=>{
+            const resp= await axios.get(url)
+            const data= resp.data
+            return data
+          }
+        
+            const ProductListDetails= async ()=>{
+              const data = await getApiProduct("https://api.escuelajs.co/api/v1/users")
+    
+              setproductdetails(data)
+            }
+      
+              useEffect(()=>{
+                ProductListDetails()
+              },[])
+          console.log("user",productdetails)
   return (
    <div className={style.MainContainer}>
+
         <div className={style.productList} >     
            {product.map((item) => (<>
+        <Row>
+      <Col span={24}>
               <div className={style.PoductSyltes}>    
               <div>         
               <div > <h1>{item.title}</h1></div>
@@ -39,6 +59,27 @@ const index = () => {
               <Button className={style.AddToButton}>Add to Cart</Button>
               </div>
               </div>
+              </Col>
+        </Row>
+              </>
+            ))}
+
+    {productdetails.map((item) => (<>
+        <Row>
+      <Col span={24}>
+              <div className={style.PoductSyltes}>    
+              <div>         
+              <div><img src={item.avatar} width={500} height={300} className={style.imgStyles} alt="" /></div>
+              <div > <h1>{item.email}</h1></div>
+              <div>{item.name}</div>
+              <div>Rs :{item.role}</div>
+              <div>{item.creationAt}</div>
+              <div>{item.updatedAt}</div>
+              <Button className={style.AddToButton}>Details</Button>
+              </div>
+              </div>
+              </Col>
+        </Row>
               </>
             ))}
         </div>
