@@ -1,46 +1,50 @@
-// import axios from 'axios'
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import style from './style.module.scss';
+import { Button } from 'antd';
 
 
 const index = () => {
-  // const [product,setproduct]=useState([])
-  //     const getApi = async (url)=>{
-  //       const resp= await axios.get(url)
-  //       const data= resp.data
-  //       return data
-  //     }
+  const [product,setproduct]=useState([])
+      const getApi = async (url)=>{
+        const resp= await axios.get(url)
+        const data= resp.data
+        return data
+      }
     
-  //       const ProductList= async ()=>{
-  //         const data = await getApi("https://vrnl.xyz/?params=8015,TP2020")
-  //         setproduct(data)
-  //       }
+        const ProductList= async ()=>{
+          // const data = await getApi("https://fakestoreapi.com/products")
+          const data = await getApi("https://api.escuelajs.co/api/v1/products")
+
+          setproduct(data)
+        }
   
-  //         useEffect(()=>{
-  //         ProductList()
-  //         },[])
-  //         console.log("data",product)
+          useEffect(()=>{
+          ProductList()
+          },[])
+          console.log("data",product)
   return (
-    <div >
+   <div className={style.MainContainer}>
+        <div className={style.productList} >     
+           {product.map((item) => (<>
+              <div className={style.PoductSyltes}>    
+              <div>         
+              <div > <h1>{item.title}</h1></div>
+              <div><img src={item.images} width={500} height={300} className={style.imgStyles} alt="" /></div>
+              <div>{item.name}</div>
+              <div>Rs :{item.price}</div>
+              <div>{item.updatedAt}</div>
+              <div>{item.creationAt}</div>
+              <div><p>{item.description}</p></div>
+              <Button className={style.AddToButton}>Add to Cart</Button>
+              </div>
+              </div>
+              </>
+            ))}
+        </div>
+    
 
-      <div className={style.ifaramStyle}>
-       <iframe width="100%" height="400" src="https://vrnl.xyz/?params=8015,TP2020" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div className={style.ifaramStyle}>
-       <iframe width="100%" height="400" src="https://vrnl.xyz/?params=8002,TEST" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div className={style.ifaramStyle}>
-       <iframe width="100%" height="400" src="https://vrnl.xyz/?params=8011,LUCKY7" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-      <div className={style.ifaramStyle}>
-       <iframe width="100%" height="400" src="https://vrnl.xyz/?params=8017,LUCKY7B" frameborder="0" allowfullscreen></iframe>
-      </div>
-
-
-    </div>
+   </div>
   )
 }
 
