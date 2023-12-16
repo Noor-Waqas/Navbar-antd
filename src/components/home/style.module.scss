@@ -1,6 +1,39 @@
-.ifaramStyle{
+.MainContainer{
+    font-size: 24px;
+    font-weight: 700;
     display: flex;
     justify-content: center;
-    justify-items: center;
-    margin-top: 15px;
+    background-color: burlywood;
+    @media only screen and (max-width: 600px) {
+        font-size: 12px;
+        }
+        .productList{
+            width: 80%;
+            margin-top: 20px;
+        }
+        .PoductSyltes{
+            border:2px solid black;
+            text-align:center;
+            margin-top:20px;
+            border-radius: 20px;
+            background-color: aqua;
+        }
+    .imgStyles{
+        border-radius: 12px;
+        @media only screen and (max-width: 600px) {
+          width: 200px;
+          }
+    }
+    .AddToButton{
+        background-color: black;
+        font-size: 16px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: white;
+        margin-bottom: 12px;
+        &:hover {
+            background-color: white;
+            color: black;
+            cursor: pointer;
+          }
+    }
 }
