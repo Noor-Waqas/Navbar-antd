@@ -5,6 +5,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 
+
 const ManuBar =( {isInline = false })=>{
   return(  
     <div className={style.divMarginStyle}>
@@ -19,7 +20,7 @@ const ManuBar =( {isInline = false })=>{
           </Menu.Item>
 
           <Menu.Item key="contact" className={style.headerMenu}>
-          <Link to="/contect"> Contact </Link>  
+          <Link to="/todo.list"> Todu List </Link>  
           </Menu.Item>
 
           <Menu.Item key="about"className={style.headerMenu} >
