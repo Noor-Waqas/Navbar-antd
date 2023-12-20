@@ -23,6 +23,10 @@ const ManuBar =( {isInline = false })=>{
           <Link to="/todo.list"> Todu List </Link>  
           </Menu.Item>
 
+          <Menu.Item key="contact" className={style.headerMenu}>
+          <Link to="/todo.list.local.storage"> Todu List2 </Link>  
+          </Menu.Item>
+
           <Menu.Item key="about"className={style.headerMenu} >
           <Link to="/about"> About </Link>  
 

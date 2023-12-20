@@ -7,6 +7,7 @@ import Contect from "../contect";
 // import Servious from "../all_servious/serviousOne";
 // import ServiousTwo from "../all_servious/serviousTwo";
 import Footter from "../fotter";
+import ToduList from "../todo_list_localStorage";
 
 
 const index = () => {
@@ -19,6 +20,8 @@ const index = () => {
             <Route path="/" element={<Home />}/>
             <Route path="/about" element={<About />}/>
             <Route path="/todo.list" element={<Contect />}/>
+            <Route path="/todo.list.local.storage" element={<ToduList />}/>
+
             {/* <Route path="/servious" element={<Servious />}/>
             <Route path="/serviousTwo" element={<ServiousTwo />}/> */}
             </Routes>
