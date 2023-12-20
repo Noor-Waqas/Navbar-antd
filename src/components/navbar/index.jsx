@@ -33,7 +33,7 @@ const ManuBar =( {isInline = false })=>{
 }
 const HerrowSection =()=>{
   return(  
-  <Menu style={{ backgroundColor: "black", color: "white", fontSize: "24px" }} mode="horizontal" >
+  <Menu style={{ backgroundColor: "blue", color: "white", fontSize: "24px" }} mode="horizontal" >
           <Menu.Item key="logo" style={{fontSize:"24px",marginTop:"6px"}}>
           <p>+923206437540</p>
           </Menu.Item>
