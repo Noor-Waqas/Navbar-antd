@@ -27,7 +27,7 @@ const index = () => {
 
   return (
     <div  className={style.MaindivStyles}>
-      <div style={{width:"60%"}}>
+      <div style={{width:"60%"}} className={style.widthDiv}>
         <div className={style.TodoListDiv}>
         <h1 style={{textAlign:"center"}}>Todo List</h1>
        <div  className={style.InputStylesDiv}>
