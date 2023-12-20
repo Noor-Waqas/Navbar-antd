@@ -1,7 +1,7 @@
 .MaindivStyles{
     display: flex;
     justify-content: center;
-    height: 100%;
+    height: 100vh;
     .TodoListDiv{
         width: 100%;
         // background-color:blue;
@@ -13,10 +13,12 @@
         display: flex;
         justify-content: center;
         gap: 10px;
-       
-    .InputStyles{
+        
+        .InputStyles{
+        background-color: aqua;
         width: 50%;
         height: 40px;
+        
         @media only screen and (max-width: 536px) {
             width: 100% !important;
             height: 30px;
@@ -52,5 +54,11 @@
           
             }
     }
-
+    input {
+        &::placeholder {
+          color:black; 
+          font-size: 16px;
+          font-family: 'Courier New', Courier, monospace;
+        }
+      }
 }
