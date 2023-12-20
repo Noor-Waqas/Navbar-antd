@@ -5,7 +5,7 @@ import { Button,Col, Row } from 'antd';
 
 const index = () => {
   const [product,setproduct]=useState([])
-  const [productdetails,setproductdetails]=useState([])
+  // const [productdetails,setproductdetails]=useState([])
 
       const getApi = async (url)=>{
         const resp= await axios.get(url)
@@ -24,22 +24,22 @@ const index = () => {
           ProductList()
           },[])
 
-          const getApiProduct = async (url)=>{
-            const resp= await axios.get(url)
-            const data= resp.data
-            return data
-          }
+          // const getApiProduct = async (url)=>{
+          //   const resp= await axios.get(url)
+          //   const data= resp.data
+          //   return data
+          // }
         
-            const ProductListDetails= async ()=>{
-              const data = await getApiProduct("https://api.escuelajs.co/api/v1/users")
+          //   const ProductListDetails= async ()=>{
+          //     const data = await getApiProduct("https://api.escuelajs.co/api/v1/users")
     
-              setproductdetails(data)
-            }
+          //     setproductdetails(data)
+          //   }
       
-              useEffect(()=>{
-                ProductListDetails()
-              },[])
-          console.log("user",productdetails)
+          //     useEffect(()=>{
+          //       ProductListDetails()
+          //     },[])
+          // console.log("user",productdetails)
   return (
    <div className={style.MainContainer}>
 
@@ -64,7 +64,7 @@ const index = () => {
               </>
             ))}
 
-    {productdetails.map((item) => (<>
+    {/* {productdetails.map((item) => (<>
         <Row>
       <Col span={24}>
               <div className={style.PoductSyltes}>    
@@ -81,7 +81,7 @@ const index = () => {
               </Col>
         </Row>
               </>
-            ))}
+            ))} */}
         </div>
     
 
