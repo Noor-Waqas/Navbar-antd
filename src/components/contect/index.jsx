@@ -11,7 +11,6 @@ const index = () => {
   const [data, setdata] = useState([]);
 
   const addHandleItem = () => {
-      // if (inputdata.trim() !== '') {}
       setdata([...data, inputdata]);
       setinputdata('');
       toast("Add items Successfully");
@@ -34,7 +33,7 @@ const index = () => {
         <Input
           value={inputdata}
           onChange={(e) => setinputdata(e.target.value)}
-          placeholder="Add item"
+          placeholder="Add item "
           className={style.InputStyles}
         />
         <Button className={style.AddToButton} onClick={addHandleItem}>
