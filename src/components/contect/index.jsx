@@ -11,11 +11,10 @@ const index = () => {
   const [data, setdata] = useState([]);
 
   const addHandleItem = () => {
-    if (inputdata.trim() !== '') {
+      // if (inputdata.trim() !== '') {}
       setdata([...data, inputdata]);
       setinputdata('');
       toast("Add items Successfully");
-    }
   };
   data
   
