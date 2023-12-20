@@ -18,6 +18,7 @@ const index = () => {
     }
   };
   data
+  
   const DeleteItem = (index) => {
     const updateddata = [...data];
     updateddata.splice(index, 1);
