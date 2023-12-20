@@ -56,7 +56,7 @@ const index = () => {
               <div>{item.updatedAt}</div>
               <div>{item.creationAt}</div>
               <div><p>{item.description}</p></div>
-              <Button className={style.AddToButton}>Add to Cart</Button>
+              <Button className={style.AddToButton}>Delete</Button>
               </div>
               </div>
               </Col>
