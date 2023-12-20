@@ -4,8 +4,10 @@ import style from './style.module.scss';
 import { MenuOutlined } from '@ant-design/icons'; 
 import { Link } from 'react-router-dom';
 
+
 const ManuBar =( {isInline = false })=>{
   return(  
+    <div className={style.divMarginStyle}>
   <Menu className={style.imgwrapperClass} mode={isInline ? "inline" : "horizontal"} >
           <Menu.Item key="logo" className={style.imgclass}>
             <img src="https://profitsols.com/wp-content/uploads/2023/07/LOGO.png" alt="Logo" style={{ marginRight: '10px' }} />
@@ -29,15 +31,18 @@ const ManuBar =( {isInline = false })=>{
             <Button> Login</Button>
           </Menu.Item>
   </Menu>
+  </div>
   )
 }
 const HerrowSection =()=>{
   return(  
+    <div className={style.divMarginStyle}>
   <Menu style={{ backgroundColor: "blue", color: "white", fontSize: "24px" }} mode="horizontal" >
           <Menu.Item key="logo" style={{fontSize:"24px",marginTop:"6px"}}>
           <p>+923206437540</p>
           </Menu.Item>
   </Menu>
+  </div>
   )
 }
 
