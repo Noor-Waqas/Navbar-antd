@@ -11,7 +11,7 @@ const Index  = () => {
   const [counting, setcounting] = useState(0);
 
   const addHandleItem = () => {
-    setdata([...data,
+    setdata([...data, 
       {
         item: inputdata,
         key: counting,
@@ -20,7 +20,8 @@ const Index  = () => {
     ]);
     setinputdata(setcounting(counting + 1));
     toast('Add items Successfully');
-  };
+  }; 
+
 
 
   const deleteHandleItem = (key) => {
@@ -70,20 +71,11 @@ const Index  = () => {
               Add
             </Button>
           </div>
-          {/* {
-            data.map(()=>{
-              return( 
-                <div className={style.tableDataDiv}>
-                <Table dataSource={data}  columns={columns} className={style.tableData} />
-              </div>
-
-            )
-            })
-          } */}
-
-          <div className={style.tableDataDiv}>
-            <Table dataSource={data}  columns={columns} className={style.tableData} />
-          </div>
+          {
+            data.length ? (<div className={style.tableDataDiv}>
+              <Table dataSource={data}  columns={columns} className={style.tableData} />
+            </div>) : ""
+          }
         </div>
       </div>
       <ToastContainer theme="dark"/>
