@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from './style.module.scss';
 
-const Index = () => {
+const Index  = () => {
   const [inputdata, setinputdata] = useState('');
   const [data, setdata] = useState([]);
   const [counting, setcounting] = useState(0);
@@ -23,7 +23,7 @@ const Index = () => {
   };
 
 
-  const deleteItem = (key) => {
+  const deleteHandleItem = (key) => {
     const updateddata = data.filter((item) => item.key !== key);
     setdata(updateddata);
     toast('Delete Successfully');
@@ -47,7 +47,7 @@ const Index = () => {
       render: (_,item) => (
         <DeleteOutlined
           className={style.ItemListButton}
-          onClick={() => deleteItem(item.key)}
+          onClick={() => deleteHandleItem(item.key)}
         />
       ),
     },
@@ -70,6 +70,16 @@ const Index = () => {
               Add
             </Button>
           </div>
+          {/* {
+            data.map(()=>{
+              return( 
+                <div className={style.tableDataDiv}>
+                <Table dataSource={data}  columns={columns} className={style.tableData} />
+              </div>
+
+            )
+            })
+          } */}
 
           <div className={style.tableDataDiv}>
             <Table dataSource={data}  columns={columns} className={style.tableData} />
