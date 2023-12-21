@@ -37,7 +37,7 @@ const index = () => {
           className={style.InputStyles}
         />
         <Button className={style.AddToButton} onClick={addHandleItem}>
-          Add
+          Add Item
         </Button>
       </div>
 
