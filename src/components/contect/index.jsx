@@ -1,75 +1,84 @@
-import React, {  useState } from 'react'
-import { Input,Button,List } from 'antd';
-import style from './style.module.scss';
-import {DeleteOutlined} from '@ant-design/icons';
+import React, {  useState } from 'react';
+import { Input, Button, Table } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import style from './style.module.scss';
 
-
-const index = () => {
-  const [inputdata, setinputdata] = useState('')
+const Index = () => {
+  const [inputdata, setinputdata] = useState('');
   const [data, setdata] = useState([]);
+  const [counting, setcounting] = useState(0);
 
   const addHandleItem = () => {
-      setdata([...data, inputdata]);
-      setinputdata('');
-      toast("Add items Successfully");
+    setdata([...data,
+      {
+        item: inputdata,
+        key: counting,
+        no: counting + 1,
+      },
+    ]);
+    setinputdata(setcounting(counting + 1));
+    toast('Add items Successfully');
   };
-  data
-  
-  const DeleteItem = (index) => {
-    const updateddata = [...data];
-    updateddata.splice(index, 1);
+
+
+  const deleteItem = (key) => {
+    const updateddata = data.filter((item) => item.key !== key);
     setdata(updateddata);
-    toast("Delete Successfully");
+    toast('Delete Successfully');
   };
+
+  const columns = [
+    {
+      title: 'No',
+      dataIndex: 'no',
+      key: 'no',
+    },
+    {
+      title: 'Item',
+      dataIndex: 'item',
+      key: 'item',
+    },
+    {
+      title: 'Action',
+      dataIndex: 'action',
+      key: 'action',
+      render: (_,item) => (
+        <DeleteOutlined
+          className={style.ItemListButton}
+          onClick={() => deleteItem(item.key)}
+        />
+      ),
+    },
+  ];
 
   return (
-    <div  className={style.MaindivStyles}>
-      <div style={{width:"60%"}} className={style.widthDiv}>
+    <div className={style.MaindivStyles}>
+      <div style={{ width: '90%' }} className={style.widthDiv}>
         <div className={style.TodoListDiv}>
-        <h1 style={{textAlign:"center"}}>Todo List</h1>
-       <div  className={style.InputStylesDiv}>
-        <Input
-          value={inputdata}
-          onChange={(e) => setinputdata(e.target.value)}
-          placeholder="Add item "
-          className={style.InputStyles}
-        />
-        <Button className={style.AddToButton} onClick={addHandleItem}>
-          Add Item
-        </Button>
-      </div>
+          <h1 style={{ textAlign: 'center' }}>Todo List</h1>
 
-        <div style={{display:"flex",justifyContent:"center"}}>
-          <List
-            dataSource={data}
-            renderItem={(item, index) => (
-              <List.Item className={style.ItemList}>
-                {item}
-                <DeleteOutlined className={style.ItemListButton} onClick={() => DeleteItem(index)}/>
-              </List.Item>
-            )}
-          />
+          <div className={style.InputStylesDiv}>
+            <Input
+              value={inputdata}
+              onChange={(e) => setinputdata(e.target.value)}
+              placeholder="Add item "
+              className={style.InputStyles}
+            />
+            <Button type='primary' className={style.AddToButton} onClick={addHandleItem}>
+              Add
+            </Button>
+          </div>
+
+          <div className={style.tableDataDiv}>
+            <Table dataSource={data}  columns={columns} className={style.tableData} />
+          </div>
         </div>
+      </div>
+      <ToastContainer theme="dark"/>
+    </div>
+  );
+};
 
-    </div>
-    </div>
-    <ToastContainer
-    style={{width:"250px",height:"20px",marginTop:"25rem",marginLeft:"20px"}}
-    position="top-center"
-    autoClose={5000}
-    hideProgressBar={false}
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-    theme="dark"
-/>
-    </div>
-  )
-}
-
-export default index
+export default Index;
