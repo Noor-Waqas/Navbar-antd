@@ -8,8 +8,6 @@ const index = () => {
   const [inputData, setinputData] = useState('');
   const [data, setdata] = useState([]);
 
-
-
   const AddEventHandle = () => {
     const UpdateData = inputData.trim();
     if (UpdateData !== '') {

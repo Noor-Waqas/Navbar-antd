@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import { Input, Button, Table } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import { DeleteOutlined,EditOutlined } from '@ant-design/icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from './style.module.scss';
@@ -21,6 +21,10 @@ const Index  = () => {
     setinputdata(setcounting(counting + 1));
     toast('Add items Successfully');
   }; 
+
+  const editHandleItem =()=>{
+    console.log("adding data successfulloy")
+  }
 
 
 
@@ -45,17 +49,18 @@ const Index  = () => {
       title: 'Action',
       dataIndex: 'action',
       key: 'action',
-      render: (_,item) => (
-        <DeleteOutlined
-          className={style.ItemListButton}
-          onClick={() => deleteHandleItem(item.key)}
-        />
+      render: (_,item) => (<>
+        <div>
+              <DeleteOutlined className={style.ItemListButton} onClick={() => deleteHandleItem(item.key)}/>
+              <EditOutlined  onClick={() => editHandleItem()}/>
+        </div>
+        </>
       ),
     },
   ];
 
   return (
-    <div className={style.MaindivStyles} style={{height:"35dvw"}}>
+    <div className={style.MaindivStyles} >
       <div style={{ width: '90%' }} className={style.widthDiv}>
         <div className={style.TodoListDiv}>
           <h1 style={{ textAlign: 'center' }}>Todo List</h1>
@@ -80,7 +85,7 @@ const Index  = () => {
       </div>
       <ToastContainer theme="dark"/>
     </div>
-  );
+  )
 };
 
 export default Index;
