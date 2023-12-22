@@ -55,7 +55,7 @@ const Index  = () => {
   ];
 
   return (
-    <div className={style.MaindivStyles}>
+    <div className={style.MaindivStyles} style={{height:"35dvw"}}>
       <div style={{ width: '90%' }} className={style.widthDiv}>
         <div className={style.TodoListDiv}>
           <h1 style={{ textAlign: 'center' }}>Todo List</h1>
