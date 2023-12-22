@@ -23,8 +23,7 @@ const Index  = () => {
   }; 
 
   const editHandleItem =()=>{
-    console.log("adding data successfulloy")
-  }
+    toast('Edit items Successfully');  }
 
 
 
