@@ -2,7 +2,19 @@
 display: flex;
 justify-content: space-between;
 border: 1px solid black;
-height: 30px;
+height: 40px;
 align-items: center;
 border-radius: 5px;
+&:hover {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    font-size: 24px; 
+  }
+  .styleButton{
+    margin-right: 20px;
+  }
+  .styleDiv{
+    margin-left: 20px;
+  }
 }

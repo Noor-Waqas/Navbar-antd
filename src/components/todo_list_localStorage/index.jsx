@@ -36,8 +36,8 @@ const index = () => {
               {data.map((item, index) => (
                 <p key={index}>
                   <div className={style.divColor}>
-                  <div>{item}</div>
-                  <div><DeleteOutlined onClick={() => deleteTask(index)}/></div>
+                  <div className={style.styleDiv}>{item}</div>
+                  <div className={style.styleButton}><DeleteOutlined onClick={() => deleteTask(index)}/></div>
                   </div>
                 </p>
               ))}
