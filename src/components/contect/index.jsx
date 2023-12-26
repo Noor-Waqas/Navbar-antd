@@ -104,6 +104,7 @@ const Index = () => {
               <Table dataSource={data}  columns={columns} className={style.tableData} />
             </div>) : ""
           }
+          
         </div>
       </div>
       <ToastContainer theme="dark"/>
