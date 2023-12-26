@@ -5,32 +5,47 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from './style.module.scss';
 
-const Index  = () => {
+const Index = () => {
   const [inputdata, setinputdata] = useState('');
   const [data, setdata] = useState([]);
   const [counting, setcounting] = useState(0);
+  const [edititem, setEdititem] = useState(null);
 
   const addHandleItem = () => {
-    setdata([...data, 
-      {
-        item: inputdata,
-        key: counting,
-        no: counting + 1,
-      },
-    ]);
-    setinputdata(setcounting(counting + 1));
-    toast('Add items Successfully');
-  }; 
+    if (edititem) {
+      const updatedData = data.map((item) =>
+        item.key === edititem.key ? { ...item, item: inputdata } : item
+      );
+      setdata(updatedData);
+      setEdititem(null);
+      setinputdata(''); 
+      toast('Edit successfully');
+    } else {
+      setdata([
+        ...data,
+        {
+          item: inputdata,
+          key: counting,
+          no: counting + 1,
+        },
+      ]);
+      setinputdata('');
+      setcounting((prevCount) => prevCount + 1);
+      toast('Item added successfully');
+    }
+  };
 
-  const editHandleItem =()=>{
-    toast('Edit items Successfully');  }
-
-
+  const editHandleItem = (item) => {
+    setEdititem(item);
+    setinputdata(item.item);
+    toast('Editing item');
+  };
 
   const deleteHandleItem = (key) => {
     const updateddata = data.filter((item) => item.key !== key);
     setdata(updateddata);
-    toast('Delete Successfully');
+    setEdititem(null);
+    toast('Item deleted successfully');
   };
 
   const columns = [
@@ -48,19 +63,28 @@ const Index  = () => {
       title: 'Action',
       dataIndex: 'action',
       key: 'action',
-      render: (_,item) => (<>
-        <div>
-              <DeleteOutlined className={style.ItemListButton} onClick={() => deleteHandleItem(item.key)}/>
-              <EditOutlined  onClick={() => editHandleItem()}/>
-        </div>
+      render: (_, item) => (
+        <>
+          <div>
+            <DeleteOutlined
+              className={style.ItemListButton}
+              onClick={() => deleteHandleItem(item.key)}
+            />
+            <EditOutlined
+              onClick={(e) => {
+                e.stopPropagation();
+                editHandleItem(item);
+              }}
+            />
+          </div>
         </>
       ),
     },
   ];
 
   return (
-    <div className={style.MaindivStyles} >
-      <div style={{ width: '90%' }} className={style.widthDiv}>
+    <div className={style.MaindivStyles}>
+       <div style={{ width: '90%' }} className={style.widthDiv}>
         <div className={style.TodoListDiv}>
           <h1 style={{ textAlign: 'center' }}>Todo List</h1>
 
@@ -84,7 +108,7 @@ const Index  = () => {
       </div>
       <ToastContainer theme="dark"/>
     </div>
-  )
+  );
 };
 
 export default Index;
